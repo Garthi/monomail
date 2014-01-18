@@ -28,6 +28,11 @@ public partial class MainWindow: Gtk.Window
 			this, DialogFlags.Modal, MessageType.Info, ButtonsType.Close, "Test window"
 		);
 
+		string host = ""; // <-- add a mail host for tests
+		monomail.Imap cImap = new monomail.Imap(host);
+
+		//myMsgDia.Text = cImap.getResult();
+
 		ResponseType response = (ResponseType) myMsgDia.Run();
 		if (response == ResponseType.Close || response == ResponseType.DeleteEvent) {
 			myMsgDia.Destroy();
